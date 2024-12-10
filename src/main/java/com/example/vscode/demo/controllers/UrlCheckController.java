@@ -27,8 +27,8 @@ public class UrlCheckController {
         String statusOfDomain = "";
         try {
             LOGGER.info("URL: [{}]", url);
-            URL urlObject = new URI(url).toURL();
-            HttpURLConnection checkConnection = (HttpURLConnection) urlObject.openConnection();
+            final URL urlObject = new URI(url).toURL();
+            final HttpURLConnection checkConnection = (HttpURLConnection) urlObject.openConnection();
             checkConnection.setRequestMethod(HttpMethod.GET.name());
             checkConnection.connect();
             final int responseCode = checkConnection.getResponseCode() / 100;
